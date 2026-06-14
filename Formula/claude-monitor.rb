@@ -1,13 +1,15 @@
 class ClaudeMonitor < Formula
   include Language::Python::Shebang
 
-  desc "Pixel-animated Claude usage monitor: doom-fire, tokenfall, invaders"
+  desc "Pixel-animated Claude usage monitor: doom-fire, tokenfall, invaders, cube"
   homepage "https://github.com/xyanwert/usage-monitor"
-  url "https://github.com/xyanwert/usage-monitor/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "8f2b59c1d0ceb04b2b01abb576d2a9cd48a44cd550311cc36d264e171b411cd5"
+  url "https://github.com/xyanwert/usage-monitor/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "a82b7c7734bd6dab314bed1141b5288210b7eb168278161a1adae1369739b0f9"
   license "MIT"
+  head "https://github.com/xyanwert/usage-monitor.git", branch: "main"
 
   depends_on "python@3.13"
+  depends_on "tmux"
 
   def install
     rewrite_shebang detected_python_shebang, "claude_monitor.py"
@@ -17,8 +19,8 @@ class ClaudeMonitor < Formula
   def caveats
     <<~EOS
       Reads your logged-in Claude Code credentials (Keychain on macOS).
-      For the split-screen dock (claude-monitor side claude):  brew install tmux
-      Apple Terminal lacks truecolor — use iTerm2, Ghostty, kitty, or WezTerm.
+      Apple's Terminal.app lacks truecolor — use iTerm2, Ghostty, kitty, or WezTerm.
+      Split-screen dock:  claude-monitor side claude
     EOS
   end
 
