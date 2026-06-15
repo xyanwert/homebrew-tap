@@ -3,8 +3,8 @@ class ClaudeMonitor < Formula
 
   desc "Pixel-animated Claude usage monitor: doom-fire, tokenfall, invaders, cube"
   homepage "https://github.com/xyanwert/usage-monitor"
-  url "https://github.com/xyanwert/usage-monitor/archive/refs/tags/v1.1.4.tar.gz"
-  sha256 "786503e6eb6a254d2e460fbf589ec02de5ac25fa289958a581a6cb570a5ee317"
+  url "https://github.com/xyanwert/usage-monitor/archive/refs/tags/v1.1.5.tar.gz"
+  sha256 "5229ace29e6cfae233fd97c2461689a29ef658fb912aba8f1bac1952669fd904"
   license "MIT"
   head "https://github.com/xyanwert/usage-monitor.git", branch: "main"
 
