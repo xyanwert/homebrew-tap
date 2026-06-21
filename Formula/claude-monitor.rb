@@ -14,6 +14,10 @@ class ClaudeMonitor < Formula
   def install
     rewrite_shebang detected_python_shebang, "claude_monitor.py"
     bin.install "claude_monitor.py" => "claude-monitor"
+    # Same script, second name: launched as `open-claude` it opens the dock
+    # plus a 1-4 pane grid of Claude consoles + terminals (argv[0] selects
+    # the launcher).
+    bin.install_symlink "claude-monitor" => "open-claude"
   end
 
   def caveats
@@ -21,10 +25,12 @@ class ClaudeMonitor < Formula
       Reads your logged-in Claude Code credentials (Keychain on macOS).
       Apple's Terminal.app lacks truecolor — use iTerm2, Ghostty, kitty, or WezTerm.
       Split-screen dock:  claude-monitor side claude
+      Multi-pane dock:    open-claude [n]  (1-4: Claude consoles + terminals)
     EOS
   end
 
   test do
     assert_match "Burnout", shell_output("#{bin}/claude-monitor --help")
+    assert_match "open-claude", shell_output("#{bin}/open-claude --help")
   end
 end
